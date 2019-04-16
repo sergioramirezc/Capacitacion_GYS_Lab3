@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab3.App.Views.RamListView"
+             xmlns:templates="clr-namespace:Lab3.App.Views.Templates"
+             xmlns:viewModelBase="clr-namespace:Lab3.App.ViewModels.Base"
+             viewModelBase:ViewModelLocator.AutoWireViewModel="true"
+             Title="Lista RAM">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <StackLayout Margin="5,0" Orientation="Horizontal">
+                    <Label Text="{Binding MinCapacity, StringFormat='RAM Capacidad mínima: {0}', FallbackValue='RAM Capacidad mínima:'}" VerticalOptions="Center"/>
+                    <Stepper Minimum="1" Maximum="32"  Value="{Binding MinCapacity}" HorizontalOptions="Start" VerticalOptions="Start" Scale=".7"/>
+                </StackLayout>
+                <ListView HasUnevenRows="True" ItemsSource="{Binding RamList}" SelectedItem="{Binding SelectedRam}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <templates:RamItemTemplate BindingContext="{Binding .}" />
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <templates:BusyIndicatorTemplate IsVisible="{Binding IsBusy}"/>
+            <templates:ConnectivityIndicatorTemplate IsVisible="{Binding IsNotConnected}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

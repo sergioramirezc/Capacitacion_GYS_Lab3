@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab3.App.Views.Templates.RamItemTemplate">
+  <ContentView.Content>
+        <Frame Margin="4,3" Padding="4,2" BorderColor="LightGray" CornerRadius="10">
+            <Grid Margin="2,4" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5.5*"/>
+                    <ColumnDefinition Width="4.5*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Text="{Binding ItemTag}" TextColor="{StaticResource PrimaryColor}" FontAttributes="Bold" TextDecorations="Underline"/>
+                <Frame Grid.Column="1" Grid.Row="0" BackgroundColor="{StaticResource PrimaryColor}" HorizontalOptions="Start" Margin="0,2,5,2" Padding="1" CornerRadius="6">
+                    <Label Text="{Binding Brand.Name}" TextColor="White" FontSize="Small" Margin="3,0"/>
+                </Frame>
+                <Label Grid.Column="0" Grid.Row="1" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="N° Serie: " TextColor="{StaticResource PrimaryColor}" />
+                            <Span Text="{Binding SerialNumber}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Grid.Column="1" Grid.Row="1" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Capacidad: " TextColor="{StaticResource PrimaryColor}" />
+                            <Span Text="{Binding Capacity}"/>
+                            <Span Text=" GB"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Grid.Column="0" Grid.Row="2" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Estandar: " TextColor="{StaticResource PrimaryColor}" />
+                            <Span Text="{Binding Standart}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Grid.Column="1" Grid.Row="2" LineBreakMode="TailTruncation">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Asignado a: " TextColor="{StaticResource PrimaryColor}" />
+                            <Span Text="{Binding Computer.ItemTag}"/>
+                            <Span Text="{Binding Computer.AsignedTo, StringFormat='({0})'}" FontSize="Micro" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Grid>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

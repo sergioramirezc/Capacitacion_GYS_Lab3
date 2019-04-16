@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab3.App.Views.RamDetailView"
+             xmlns:viewModelBase="clr-namespace:Lab3.App.ViewModels.Base"
+             viewModelBase:ViewModelLocator.AutoWireViewModel="true"
+             Title="Detalle RAM">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Margin="4,5,0,0"  Text="RAM" TextDecorations="Underline"/>
+                <Frame Margin="4,0,4,3" Padding="4,2" BorderColor="LightGray" CornerRadius="10">
+                    <StackLayout Margin="2,4">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Ram.ItemTag}" VerticalOptions="Center" TextColor="{StaticResource PrimaryColor}" FontAttributes="Bold" TextDecorations="Underline"/>
+                            <Frame BackgroundColor="{StaticResource PrimaryColor}" HorizontalOptions="Start" Margin="0,2,5,2" Padding="1" CornerRadius="6">
+                                <Label Text="{Binding Ram.Brand.Name}" TextColor="White" FontSize="Small" Margin="3,0"/>
+                            </Frame>
+                        </StackLayout>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="N° Serie: " TextColor="{StaticResource PrimaryColor}" />
+                                    <Span Text="{Binding Ram.SerialNumber}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Capacidad: " TextColor="{StaticResource PrimaryColor}" />
+                                    <Span Text="{Binding Ram.Capacity}"/>
+                                    <Span Text=" GB"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Estandar: " TextColor="{StaticResource PrimaryColor}" />
+                                    <Span Text="{Binding Ram.Standart}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </Frame>
+                <Label Margin="4,3,4,0" Text="Computadora" TextDecorations="Underline"/>
+                <Frame Margin="4,0,4,3" Padding="4,2" BorderColor="LightGray" CornerRadius="10">
+                    <StackLayout Margin="2,4">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Ram.Computer.ItemTag}" VerticalOptions="Center" TextColor="{StaticResource PrimaryColor}" FontAttributes="Bold" TextDecorations="Underline"/>
+                            <Frame BackgroundColor="{StaticResource PrimaryColor}" HorizontalOptions="Start" Margin="0,2,5,2" Padding="1" CornerRadius="6">
+                                <Label Text="{Binding Ram.Computer.Brand.Name}" TextColor="White" FontSize="Small" Margin="3,0"/>
+                            </Frame>
+                        </StackLayout>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="N° Serie: " TextColor="{StaticResource PrimaryColor}" />
+                                    <Span Text="{Binding Ram.Computer.SerialNumber}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Modelo: " TextColor="{StaticResource PrimaryColor}" />
+                                    <Span Text="{Binding Ram.Computer.Model}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Asignado a: " TextColor="{StaticResource PrimaryColor}" />
+                                    <Span Text="{Binding Ram.Computer.AsignedTo}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Label Margin="4,3,4,0" Text="Procesador" TextDecorations="Underline"/>
+                        <Frame Margin="4,0,4,3" Padding="4,2" CornerRadius="10">
+                            <StackLayout Margin="2,4">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Ram.Computer.ItemTag}" VerticalOptions="Center" TextColor="{StaticResource PrimaryColor}" FontAttributes="Bold" TextDecorations="Underline"/>
+                                    <Frame BackgroundColor="{StaticResource PrimaryColor}" HorizontalOptions="Start" Margin="0,2,5,2" Padding="1" CornerRadius="6">
+                                        <Label Text="{Binding Ram.Computer.Processor.Brand.Name}" TextColor="White" FontSize="Small" Margin="3,0"/>
+                                    </Frame>
+                                </StackLayout>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Modelo: " TextColor="{StaticResource PrimaryColor}" />
+                                            <Span Text="{Binding Ram.Computer.Processor.Model}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Nucleos: " TextColor="{StaticResource PrimaryColor}" />
+                                            <Span Text="{Binding Ram.Computer.Processor.Cores}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Frecuencia: " TextColor="{StaticResource PrimaryColor}" />
+                                            <Span Text="{Binding Ram.Computer.Processor.ClockSpeed, StringFormat='{0} GHz'}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+
+                        <Label Margin="4,3,4,0" Text="Almacenamiento HDD" TextDecorations="Underline" IsVisible="{Binding Ram.Computer.HasHdd}"/>
+                        <Frame Margin="4,0,4,3" Padding="4,2" CornerRadius="10" IsVisible="{Binding Ram.Computer.HasHdd}">
+                            <StackLayout Margin="2,4">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Ram.Computer.Hdd.StorageDrive.ItemTag}" VerticalOptions="Center" TextColor="{StaticResource PrimaryColor}" FontAttributes="Bold" TextDecorations="Underline"/>
+                                    <Frame BackgroundColor="{StaticResource PrimaryColor}" HorizontalOptions="Start" Margin="0,2,5,2" Padding="1" CornerRadius="6">
+                                        <Label Text="{Binding Ram.Computer.Hdd.StorageDrive.Brand.Name}" TextColor="White" FontSize="Small" Margin="3,0"/>
+                                    </Frame>
+                                </StackLayout>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Modelo: " TextColor="{StaticResource PrimaryColor}" />
+                                            <Span Text="{Binding Ram.Computer.Hdd.StorageDrive.Model}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Capacidad: " TextColor="{StaticResource PrimaryColor}" />
+                                            <Span Text="{Binding Ram.Computer.Hdd.StorageDrive.Capacity, StringFormat='{0} GB'}}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Revoluciones por minuto: " TextColor="{StaticResource PrimaryColor}" />
+                                            <Span Text="{Binding Ram.Computer.Hdd.Rpm, StringFormat='{0} RPM'}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+
+                        <Label Margin="4,3,4,0" Text="Almacenamiento SSD" TextDecorations="Underline" IsVisible="{Binding Ram.Computer.HasSsd}"/>
+                        <Frame Margin="4,0,4,3" Padding="4,2" CornerRadius="10" IsVisible="{Binding Ram.Computer.HasSsd}">
+                            <StackLayout Margin="2,4">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Ram.Computer.Ssd.StorageDrive.ItemTag}" VerticalOptions="Center" TextColor="{StaticResource PrimaryColor}" FontAttributes="Bold" TextDecorations="Underline"/>
+                                    <Frame BackgroundColor="{StaticResource PrimaryColor}" HorizontalOptions="Start" Margin="0,2,5,2" Padding="1" CornerRadius="6">
+                                        <Label Text="{Binding Ram.Computer.Ssd.StorageDrive.Brand.Name}" TextColor="White" FontSize="Small" Margin="3,0"/>
+                                    </Frame>
+                                </StackLayout>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Modelo: " TextColor="{StaticResource PrimaryColor}" />
+                                            <Span Text="{Binding Ram.Computer.Ssd.StorageDrive.Model}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Capacidad: " TextColor="{StaticResource PrimaryColor}" />
+                                            <Span Text="{Binding Ram.Computer.Ssd.StorageDrive.Capacity, StringFormat='{0} GB'}}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Interface: " TextColor="{StaticResource PrimaryColor}" />
+                                            <Span Text="{Binding Ram.Computer.Ssd.Interface}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
