@@ -9,6 +9,9 @@
 
             <converters:ItemTappedEventArgsConverter x:Key="ItemTappedEventArgsConverter" />
             <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+            <converters:IsFavoriteConverter x:Key="IsFavoriteConverter" />
+            
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

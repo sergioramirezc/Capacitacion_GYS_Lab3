@@ -7,6 +7,8 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Collections.Generic;
+using Lab3.App.Views.Events;
+using Lab3.App.ViewModels.Events;
 
 namespace Lab3.App.Services
 {
@@ -24,7 +26,7 @@ namespace Lab3.App.Services
 
         public Task InitializeAsync()
         {
-            return NavigateToAsync<RamListViewModel>();
+            return NavigateToAsync<EventListViewModel>();
         }
 
         public Task NavigateToAsync<TViewModel>() where TViewModel : ViewModelBase

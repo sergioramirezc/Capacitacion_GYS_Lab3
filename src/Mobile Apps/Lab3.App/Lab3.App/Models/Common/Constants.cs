@@ -6,7 +6,7 @@ namespace Lab3.App.Models.Common
 {
     public class Constants
     {
-        public const string BaseEndpoint = "http://lab3.azurewebsites.net";
+        public const string BaseEndpoint = "http://gyslab3.azurewebsites.net";
 
         public struct ErrorTypes
         {

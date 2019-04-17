@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:devsdna="clr-namespace:DevsDNA;assembly=DevsDNA.GradientBoxView"
+             x:Class="Lab3.App.Views.Events.Templates.EventItemTemplate">
+  <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="{Binding ImgUrl}" Aspect="Fill" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+
+            <devsdna:GradientBoxView Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+            TopColor="Transparent" 
+            BottomColor="Black" />
+            
+            <Label Margin="6,0" Text="{Binding Category.Name}" FontSize="Medium" TextColor="White" VerticalOptions="EndAndExpand" VerticalTextAlignment="End" Grid.Row="0" Grid.Column="0"/>
+            <Label Margin="6,0" TextColor="White" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" VerticalTextAlignment="End" Grid.Row="0" Grid.Column="1">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="desde " FontSize="Small"/>
+                        <Span Text="{Binding Price, StringFormat='S./{0}'}" FontSize="Medium" FontAttributes="Bold"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <BoxView HeightRequest="2" Opacity=".70" Margin="6,0" Color="White" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"/>
+            <Label Margin="6,0" FontAttributes="Bold" Text="{Binding Name}" TextColor="White" FontSize="Medium" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+            <Image Source="{Binding IsFavorite, Converter={StaticResource IsFavoriteConverter}}" Grid.Column="1" Grid.Row="1" HorizontalOptions="EndAndExpand" Margin="6,0"/>
+            <Label Margin="6,0" Text="{Binding Address}" Grid.Row="2" Grid.Column="0"/>
+            <Label HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Margin="6,0" Text="{Binding Date, StringFormat='{0:dd/MMMM/yyyy}'}" Grid.Row="2" Grid.Column="1"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

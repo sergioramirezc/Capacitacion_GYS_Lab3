@@ -6,6 +6,8 @@ using System.Reflection;
 using Lab3.App.Services.RequestProvider;
 using Xamarin.Forms;
 using Lab3.App.Services.RamService;
+using Lab3.App.Services.Events;
+using Lab3.App.ViewModels.Events;
 
 namespace Lab3.App.ViewModels.Base
 {
@@ -40,13 +42,16 @@ namespace Lab3.App.ViewModels.Base
         public static void RegisterDependencies(bool useMockServices)
         {
             var builder = new ContainerBuilder();
+            builder.RegisterType<EventListViewModel>();
             builder.RegisterType<RamListViewModel>();
             builder.RegisterType<RamDetailViewModel>();
+            builder.RegisterType<EventDetailViewModel>();
             builder.RegisterType<NavigationService>().As<INavigationService>().SingleInstance();
             builder.RegisterType<RequestProvider>().As<IRequestProvider>();
             if (useMockServices)
             {
                 builder.RegisterType<RamMockService>().As<IRamService>();
+                builder.RegisterType<EventsMockService>().As<IEventsService>();
             }
             else
             {

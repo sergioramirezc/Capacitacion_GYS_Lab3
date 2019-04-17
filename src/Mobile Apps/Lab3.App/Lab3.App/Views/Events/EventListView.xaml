@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModelBase="clr-namespace:Lab3.App.ViewModels.Base"
+             viewModelBase:ViewModelLocator.AutoWireViewModel="true"
+             x:Class="Lab3.App.Views.Events.EventListView"
+             xmlns:Behaviors="clr-namespace:Lab3.App.Behaviors"
+             xmlns:templates="clr-namespace:Lab3.App.Views.Events.Templates">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView HasUnevenRows="True" ItemsSource="{Binding EventList}">
+                <ListView.Behaviors>
+                    <Behaviors:EventToCommandBehavior EventName="ItemTapped" Command="{Binding SelectedEventCommand}" EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}"/>
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="250">
+                            <templates:EventItemTemplate BindingContext="{Binding .}"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

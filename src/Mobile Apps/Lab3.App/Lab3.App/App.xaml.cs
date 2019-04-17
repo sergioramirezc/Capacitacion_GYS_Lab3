@@ -21,7 +21,7 @@ namespace Lab3.App
 
         private void InitApp()
         {
-            ViewModelLocator.RegisterDependencies(useMockServices: false);
+            ViewModelLocator.RegisterDependencies(useMockServices: true);
         }
 
         private Task InitNavigation()
