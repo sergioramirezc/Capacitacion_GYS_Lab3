@@ -2,13 +2,58 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModelBase="clr-namespace:Lab3.App.ViewModels.Base"
+             xmlns:devsdna="clr-namespace:DevsDNA;assembly=DevsDNA.GradientBoxView"
              viewModelBase:ViewModelLocator.AutoWireViewModel="true"
+             xmlns:templates="clr-namespace:Lab3.App.Views.Events.Templates"
              x:Class="Lab3.App.Views.Events.EventDetailView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <StackLayout>
+                <ScrollView>
+                    <StackLayout >
+                        <Label >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="PROX. FECHA:" FontSize="16"/>
+                                    <Span FontSize="16" Text="{Binding Event.Date, StringFormat='{0:dd-MMM-yy}'}" FontAttributes="Bold"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Grid HeightRequest="300">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding Event.ImgUrl}" Aspect="Fill" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+
+                            <devsdna:GradientBoxView Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+            TopColor="Transparent" 
+            BottomColor="Black" />
+
+                            <Label Margin="6,0" FontAttributes="Bold" Text="{Binding Event.Name}" TextColor="White" FontSize="Medium" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                            <Image PropertyChanged="Image_PropertyChanged" Source="{Binding Event.IsFavorite, Converter={StaticResource IsFavoriteConverter}}" Grid.Column="1" Grid.Row="1" HorizontalOptions="EndAndExpand" Margin="6,0">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding FavoriteCommand}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+                        <Label Text="{Binding Event.Description}" Margin="10,0"/>
+                        <Label Margin="10,0" Text="Ver+" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TextColor="{StaticResource PrimaryColor}" TextDecorations="Underline">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ViewMoreCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </ScrollView>
+                <StackLayout Orientation="Horizontal">
+
+                </StackLayout>
+            </StackLayout>
+            <templates:EventDetailModal  IsVisible="{Binding DetailModalShow}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

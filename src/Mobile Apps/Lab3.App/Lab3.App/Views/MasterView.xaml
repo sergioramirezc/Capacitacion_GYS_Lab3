@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab3.App.Views.MasterView"
+             Title="Master" 
+             xmlns:viewmodel="clr-namespace:Lab3.App.ViewModels.Base"
+             viewmodel:ViewModelLocator.AutoWireViewModel="True">
+  <StackLayout>
+    <ListView x:Name="MenuItemsListView" BackgroundColor="Black"
+              SeparatorVisibility="None"
+              HasUnevenRows="true"
+              ItemsSource="{Binding MenuItems}">
+      <ListView.Header>
+        <Grid BackgroundColor="Red">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
+          </Grid.RowDefinitions>
+                    <StackLayout
+Grid.Column="1" 
+Grid.Row="1"
+                        Orientation="Horizontal">
+                        <Image Source="ic_favorite"/>
+                        <Label TextColor="White" VerticalOptions="Center"
+              FontSize="Large"
+              
+              Text="AppName"/>
+                    </StackLayout>
+                </Grid>
+      </ListView.Header>
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Padding="5,5" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                            <Image Source="ic_favorite_border"/>
+                            <Label VerticalOptions="FillAndExpand" 
+                    VerticalTextAlignment="Center" TextColor="White"
+                    Text="{Binding Title}" 
+                    FontSize="18"/>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>

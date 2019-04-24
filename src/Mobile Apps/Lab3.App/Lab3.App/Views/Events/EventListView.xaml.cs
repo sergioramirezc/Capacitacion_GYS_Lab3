@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Lab3.App.ViewModels.Base;
+using Lab3.App.ViewModels.Events;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +18,11 @@ namespace Lab3.App.Views.Events
 		{
 			InitializeComponent ();
 		}
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await (this.BindingContext as ViewModelBase).InitializeAsync(null);
+        }
     }
 }

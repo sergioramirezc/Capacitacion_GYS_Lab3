@@ -42,6 +42,8 @@ namespace Lab3.App.ViewModels.Base
         public static void RegisterDependencies(bool useMockServices)
         {
             var builder = new ContainerBuilder();
+            builder.RegisterType<MasterViewModel>();
+            builder.RegisterType<MasterDetailViewModel>();
             builder.RegisterType<EventListViewModel>();
             builder.RegisterType<RamListViewModel>();
             builder.RegisterType<RamDetailViewModel>();

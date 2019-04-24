@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab3.App.Views.Events.Templates.EventDetailModal"
+             >
+  <ContentView.Content >
+        <Grid BackgroundColor="#80000000">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="60*"/>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
+            <Frame BackgroundColor="White" Grid.Column="1" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <ScrollView>
+                    <StackLayout>
+                        <Label TextColor="Red" Text="{Binding Event.Name}" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+                        <Image Source="{Binding Event.ImgUrl}"/>
+                        <Label Text="{Binding Event.Description}"/>
+                        <Button Text="Cerrar" Command="{Binding ViewMoreCommand}"/>
+                    </StackLayout>
+                </ScrollView>
+            </Frame>
+        </Grid>
+  </ContentView.Content>
+</ContentView>

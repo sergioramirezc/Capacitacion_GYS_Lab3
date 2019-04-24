@@ -5,7 +5,7 @@
              x:Class="Lab3.App.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="PrimaryColor">#0065b3</Color>
+            <Color x:Key="PrimaryColor">#42a692</Color>
 
             <converters:ItemTappedEventArgsConverter x:Key="ItemTappedEventArgsConverter" />
             <converters:InverseBoolConverter x:Key="InverseBoolConverter" />

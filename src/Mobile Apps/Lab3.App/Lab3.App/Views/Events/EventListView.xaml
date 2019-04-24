@@ -6,6 +6,9 @@
              x:Class="Lab3.App.Views.Events.EventListView"
              xmlns:Behaviors="clr-namespace:Lab3.App.Behaviors"
              xmlns:templates="clr-namespace:Lab3.App.Views.Events.Templates">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="ic_favorite_border" Command="{Binding .}" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <ListView HasUnevenRows="True" ItemsSource="{Binding EventList}">

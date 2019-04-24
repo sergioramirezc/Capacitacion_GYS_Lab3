@@ -26,7 +26,7 @@ namespace Lab3.App.Services
 
         public Task InitializeAsync()
         {
-            return NavigateToAsync<EventListViewModel>();
+            return NavigateToAsync<MasterDetailViewModel>();
         }
 
         public Task NavigateToAsync<TViewModel>() where TViewModel : ViewModelBase

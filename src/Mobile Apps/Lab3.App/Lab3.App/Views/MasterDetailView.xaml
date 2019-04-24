@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab3.App.Views.MasterDetailView"
+             xmlns:pages="clr-namespace:Lab3.App.Views"
+             xmlns:events="clr-namespace:Lab3.App.Views.Events"
+             xmlns:viewmodel="clr-namespace:Lab3.App.ViewModels.Base"
+                  NavigationPage.HasNavigationBar="False"
+             viewmodel:ViewModelLocator.AutoWireViewModel="True">
+  <MasterDetailPage.Master>
+    <pages:MasterView x:Name="MasterPage" />
+  </MasterDetailPage.Master>
+  <MasterDetailPage.Detail>
+    <NavigationPage>
+      <x:Arguments>
+        <pages:MainTabbedView />
+      </x:Arguments>
+    </NavigationPage>
+  </MasterDetailPage.Detail>
+</MasterDetailPage>

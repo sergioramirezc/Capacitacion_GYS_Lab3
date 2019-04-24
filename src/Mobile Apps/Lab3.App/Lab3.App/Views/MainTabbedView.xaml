@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Eventos"
+             x:Class="Lab3.App.Views.MainTabbedView"
+             xmlns:events="clr-namespace:Lab3.App.Views.Events">
+    <events:EventListView Title="Todos" />
+    <events:EventListView Title="Hoy" />
+    <events:EventListView Title="Mañana" />
+</TabbedPage>
