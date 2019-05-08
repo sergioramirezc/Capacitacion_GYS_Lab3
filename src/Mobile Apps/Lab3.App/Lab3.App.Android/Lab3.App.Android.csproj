@@ -65,7 +65,7 @@
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <BundleAssemblies>true</BundleAssemblies>
     <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
-    <EnableProguard>true</EnableProguard>
+    <EnableProguard>false</EnableProguard>
     <AndroidSupportedAbis />
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
   </PropertyGroup>
