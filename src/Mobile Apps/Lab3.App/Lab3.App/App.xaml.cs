@@ -3,6 +3,7 @@ using Lab3.App.ViewModels.Base;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Push;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -34,10 +35,10 @@ namespace Lab3.App
         {
             base.OnStart();
 
-            AppCenter.Start("android=30eeeca5-2acc-4ffd-b0e6-4bb51e89b594;" +
+            AppCenter.Start("android=48afbb71-5326-4169-b771-0d157fed036d;" +
                   "uwp={Your UWP App secret here};" +
                   "ios={Your iOS App secret here}",
-                  typeof(Crashes),typeof(Analytics));
+                  typeof(Crashes),typeof(Analytics),typeof(Push));
 
             await InitNavigation();
         }

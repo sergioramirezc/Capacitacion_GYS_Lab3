@@ -48,6 +48,7 @@ namespace Lab3.App.ViewModels.Base
             builder.RegisterType<RamListViewModel>();
             builder.RegisterType<RamDetailViewModel>();
             builder.RegisterType<EventDetailViewModel>();
+            builder.RegisterType<EventMapViewModel>();
             builder.RegisterType<NavigationService>().As<INavigationService>().SingleInstance();
             builder.RegisterType<RequestProvider>().As<IRequestProvider>();
             if (useMockServices)

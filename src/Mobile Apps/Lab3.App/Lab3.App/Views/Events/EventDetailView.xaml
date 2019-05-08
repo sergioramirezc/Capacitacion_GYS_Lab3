@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModelBase="clr-namespace:Lab3.App.ViewModels.Base"
              xmlns:devsdna="clr-namespace:DevsDNA;assembly=DevsDNA.GradientBoxView"
+             xmlns:viewModelBase="clr-namespace:Lab3.App.ViewModels.Base"
              viewModelBase:ViewModelLocator.AutoWireViewModel="true"
              xmlns:templates="clr-namespace:Lab3.App.Views.Events.Templates"
              x:Class="Lab3.App.Views.Events.EventDetailView">
     <ContentPage.Content>
         <Grid>
             <StackLayout>
-                <ScrollView>
+                <ScrollView VerticalOptions="FillAndExpand">
                     <StackLayout >
                         <Label >
                             <Label.FormattedText>
@@ -47,10 +47,12 @@
                                 <TapGestureRecognizer Command="{Binding ViewMoreCommand}"/>
                             </Label.GestureRecognizers>
                         </Label>
+                        <Button Text="Ver mapa" Command="{Binding GoToMapCommand}"/>
                     </StackLayout>
                 </ScrollView>
-                <StackLayout Orientation="Horizontal">
-
+                <StackLayout Padding="10" VerticalOptions="End" Orientation="Horizontal">
+                    <Button CornerRadius="8" HorizontalOptions="FillAndExpand" TextColor="White" Text="Compartir" BackgroundColor="{StaticResource PrimaryColor}" HeightRequest="110"/>
+                    <Button CornerRadius="8" HorizontalOptions="FillAndExpand" TextColor="White" Text="Comprar" BackgroundColor="Red" HeightRequest="110"/>
                 </StackLayout>
             </StackLayout>
             <templates:EventDetailModal  IsVisible="{Binding DetailModalShow}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>

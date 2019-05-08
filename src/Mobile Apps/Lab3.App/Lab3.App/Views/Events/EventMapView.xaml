@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab3.App.Views.Events.EventMapView"
+             xmlns:viewModelBase="clr-namespace:Lab3.App.ViewModels.Base"
+             viewModelBase:ViewModelLocator.AutoWireViewModel="true"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             NavigationPage.HasBackButton="False"
+             Title="Mapa evento">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="{Binding EventPins[0].Address}" TextColor="White" FontAttributes="Bold"/>
+            <Label Text="{Binding EventPins[0].Name}" TextColor="White"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="X" Command="{Binding CloseCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <maps:Map VerticalOptions="FillAndExpand" IsShowingUser="True" HorizontalOptions="FillAndExpand" ItemsSource="{Binding EventPins}">
+                <x:Arguments>
+                    <maps:MapSpan>
+                        <x:Arguments>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>-12.0940196</x:Double>
+                                    <x:Double>-77.0263724</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <x:Double>.07</x:Double>
+                            <x:Double>.07</x:Double>
+                        </x:Arguments>
+                    </maps:MapSpan>
+                </x:Arguments>
+                <maps:Map.ItemTemplate>
+                    <DataTemplate>
+                        <maps:Pin Label="{Binding Name}"
+                                  Address="{Binding Address}"
+                                  Position="{Binding EventPosition}"
+                                  Type="Place"
+                            />
+                    </DataTemplate>
+                </maps:Map.ItemTemplate>
+            </maps:Map>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

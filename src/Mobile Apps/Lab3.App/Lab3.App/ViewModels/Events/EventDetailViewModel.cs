@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Plugin.Permissions.Abstractions;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -13,6 +15,23 @@ namespace Lab3.App.ViewModels.Events
         {
             ViewMoreCommand = new Command(() => ViewMore());
             FavoriteCommand = new Command(() => Favorite());
+            GoToMapCommand = new Command(() => GoToMap());
+        }
+
+        private async Task GoToMap()
+        {
+            try
+            {
+                var result = await Plugin.Permissions.CrossPermissions.Current.RequestPermissionsAsync(Permission.Location);
+                if (result.FirstOrDefault().Value == PermissionStatus.Granted)
+                {
+                    await NavigationService.NavigateToAsync<EventMapViewModel>(Event);
+                }
+            }
+            catch (Exception ex)
+            {
+                //Do nothing
+            }
         }
 
         private Models.Events.Event _event;
@@ -29,6 +48,7 @@ namespace Lab3.App.ViewModels.Events
 
         public ICommand ViewMoreCommand { get; set; }
         public ICommand FavoriteCommand { get; set; }
+        public ICommand GoToMapCommand { get; set; }
 
         private async Task ViewMore()
         {

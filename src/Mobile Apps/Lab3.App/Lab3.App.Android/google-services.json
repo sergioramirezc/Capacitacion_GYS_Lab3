@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "519842954214",
+    "firebase_url": "https://gys-lab-app.firebaseio.com",
+    "project_id": "gys-lab-app",
+    "storage_bucket": "gys-lab-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:519842954214:android:fbb2e6271aa873ac",
+        "android_client_info": {
+          "package_name": "com.lab.sergio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "519842954214-7con1lne64ufci4g7e5tpl6o988l6po7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnacyUVt6mw_U04UIcpWToxocaJBg6-10"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "519842954214-7con1lne64ufci4g7e5tpl6o988l6po7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
