@@ -7,7 +7,10 @@ namespace Lab3.App.UiTest.UITests
 {
     internal static class AppManager
     {
-        private const string ApkPath = "src\\Mobile Apps\\Lab3.App\\Lab3.App.Android\\bin\\Release\\com.arkano.test-Signed.apk";
+        /*App center command
+        appcenter test run uitest --app "GysCapacitacion/Lab3" --devices "GysCapacitacion/set-android-gama-alta" --app-path "D:\capa\Lab3\src\Mobile Apps\Lab3.App\Lab3.App.Android\bin\Release\com.lab.sergio-Signed.apk" --test-series "automated-ui-test" --locale "es_MX" --build-dir "D:\capa\Lab3\Tests\Lab3.App.UiTest\bin\Release" --uitest-tools-dir "C:\Users\sergio.ramirez\.nuget\packages\xamarin.uitest\2.2.7\tools"
+        */
+        private const string ApkPath = "src\\Mobile Apps\\Lab3.App\\Lab3.App.Android\\bin\\Release\\com.lab.sergio-Signed.apk";
 
         private static IApp app;
 
@@ -40,8 +43,7 @@ namespace Lab3.App.UiTest.UITests
 
         public static void StartApp()
         {
-            var _path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
-            _path = _path.Replace("Tests\\Lab3.App.UiTest\\bin\\Debug", ApkPath).Replace("file:\\", "");
+            var _path = @"D:\capa\Lab3\src\Mobile Apps\Lab3.App\Lab3.App.Android\bin\Release\com.lab.sergio-Signed.apk";
 
 
             if (Platform == Platform.Android)

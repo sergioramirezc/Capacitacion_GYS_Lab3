@@ -45,6 +45,8 @@
     <Compile Include="AppManager.cs" />
     <Compile Include="BasePage.cs" />
     <Compile Include="BaseTestFixture.cs" />
+    <Compile Include="Pages\EventDetailPage.cs" />
+    <Compile Include="Pages\EventListPage.cs" />
     <Compile Include="Pages\RamDetailPage.cs" />
     <Compile Include="Pages\RamListPage.cs" />
     <Compile Include="PlatformQuery.cs" />

@@ -16,13 +16,27 @@ namespace Lab3.App.UiTest.UITests
         }
 
         [Test]
-        public void CheckRamDetail()
+        public void Repl()
         {
-            new RamListPage()
-                    .LoadItems()
-                    .SelectItem();
-            new RamDetailPage()
-                    .LoadDetail();
+            app.Repl();
+        }
+
+        [Test]
+        public void CheckMenu()
+        {
+            new EventListPage()
+                    .OpenMenu()
+                    .CloseMenu();
+        }
+
+        [Test]
+        public void CheckMap()
+        {
+            new EventListPage()
+                            .EventDetailTap("Otros");
+
+            new EventDetailPage()
+                            .ViewMap();
         }
     }
 }

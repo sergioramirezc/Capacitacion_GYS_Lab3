@@ -46,5 +46,10 @@ namespace Lab3.App.UiTest.UITests
         // For example, you could add a method here to open a side menu that is accesible from all pages.
         // To keep things more organized, consider subclassing BasePage and including common page actions there.
         // For some examples check out https://github.com/xamarin-automation-service/uitest-pop-example/wiki
+
+        public BasePage Wait(int miliseconds)
+        {
+            return this;
+        }
     }
 }
