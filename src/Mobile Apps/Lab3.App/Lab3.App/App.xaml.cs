@@ -37,7 +37,7 @@ namespace Lab3.App
 
             AppCenter.Start("android=48afbb71-5326-4169-b771-0d157fed036d;" +
                   "uwp={Your UWP App secret here};" +
-                  "ios={Your iOS App secret here}",
+                  "ios=e6239c0d-ecca-47af-b1e1-7d7cdd61922a",
                   typeof(Crashes),typeof(Analytics),typeof(Push));
 
             await InitNavigation();
