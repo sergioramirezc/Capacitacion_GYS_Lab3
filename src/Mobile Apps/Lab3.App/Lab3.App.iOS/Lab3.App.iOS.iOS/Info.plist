@@ -33,8 +33,12 @@
 	<string>Lab3.App.iOS</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcons.appiconset</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Necesitamos acceder a tu GPS.</string>
+  <key>NSLocationWhenInUseUsageDescription</key>
+  <string>Necesitamos acceder a tu GPS.</string>
+  <key>NSLocationAlwaysUsageDescription</key>
+  <string>Necesitamos acceder a tu GPS.</string>
+  <key>NSCalendarsUsageDescription</key>
+  <string>Necesitamos acceder a tu GPS.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
